@@ -1,0 +1,29 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Payslip API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/hello": {
+      "get": {
+        "summary": "say hello to the world",
+        "tags": ["test"],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "example":[
+                  {
+                    "message": "Hello World"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
