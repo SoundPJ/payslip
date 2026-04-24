@@ -19,7 +19,9 @@ export default function ApiDocs() {
       });
     });
   }, []);
-
+  if (process.env.NODE_ENV === "production") {
+    return ("NOT FOUND");
+  }
   return (
     <main style={{ background: "white", minHeight: "100vh" }}>
       <div id="swagger-ui" />
