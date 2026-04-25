@@ -6,7 +6,7 @@ services:
       context: .
       target: migrate
     environment:
-      DATABASE_URL: ${DATABASE_URL}
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database:5432/${POSTGRES_DB}
     depends_on:
       database:
         condition: service_healthy
@@ -16,12 +16,12 @@ services:
       target: runner
     container_name: payslip_web
     environment:
-      DATABASE_URL: ${DATABASE_URL}
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database:5432/${POSTGRES_DB}
     depends_on:
       database:
         condition: service_healthy
-      # migrate:
-      #   condition: service_completed_successfully
+      migrate:
+        condition: service_completed_successfully
 
   database:
     image: postgres:15
